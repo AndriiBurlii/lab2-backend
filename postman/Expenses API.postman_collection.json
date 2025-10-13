@@ -1,0 +1,130 @@
+{
+  "info": {
+    "name": "Expenses API",
+    "_postman_id": "c2f6e0f4-7b6b-4e3f-bd30-000000000001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Healthcheck",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/"
+      }
+    },
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Max\"}"
+        },
+        "url": "{{baseUrl}}/user"
+      }
+    },
+    {
+      "name": "Get User",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/user/1"
+      }
+    },
+    {
+      "name": "List Users",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/users"
+      }
+    },
+    {
+      "name": "Create Category",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Food\"}"
+        },
+        "url": "{{baseUrl}}/category"
+      }
+    },
+    {
+      "name": "List Categories",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/category"
+      }
+    },
+    {
+      "name": "Create Record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\":1,\"category_id\":1,\"amount\":99.9}"
+        },
+        "url": "{{baseUrl}}/record"
+      }
+    },
+    {
+      "name": "Get Record by id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/record/1"
+      }
+    },
+    {
+      "name": "Filter Records by user",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/record?user_id=1"
+      }
+    },
+    {
+      "name": "Filter Records by user & category",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/record?user_id=1&category_id=1"
+      }
+    },
+    {
+      "name": "Delete Record",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/record/1"
+      }
+    },
+    {
+      "name": "Delete Category (?id=)",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/category?id=1"
+      }
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/user/1"
+      }
+    }
+  ]
+}

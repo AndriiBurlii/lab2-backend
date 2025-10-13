@@ -1,0 +1,72 @@
+{
+  "type": "Flow",
+  "version": "1.0",
+  "name": "Expenses Flow",
+  "blocks": [
+    {
+      "id": "start",
+      "type": "start"
+    },
+    {
+      "id": "create_user",
+      "type": "request",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/user",
+        "body": {
+          "name": "Max"
+        }
+      }
+    },
+    {
+      "id": "create_cat",
+      "type": "request",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/category",
+        "body": {
+          "name": "Food"
+        }
+      }
+    },
+    {
+      "id": "create_rec",
+      "type": "request",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/record",
+        "body": {
+          "user_id": "{{$path.create_user.body.id}}",
+          "category_id": "{{$path.create_cat.body.id}}",
+          "amount": 15.5
+        }
+      }
+    },
+    {
+      "id": "filter_user",
+      "type": "request",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/record?user_id={{$path.create_user.body.id}}"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "start",
+      "to": "create_user"
+    },
+    {
+      "from": "create_user",
+      "to": "create_cat"
+    },
+    {
+      "from": "create_cat",
+      "to": "create_rec"
+    },
+    {
+      "from": "create_rec",
+      "to": "filter_user"
+    }
+  ]
+}
