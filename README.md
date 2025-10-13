@@ -1,3 +1,5 @@
+Deployed: https://lab2-backend-l2tv.onrender.com
+Repository: https://github.com/AndriiBurlii/lab2-backend
 
 # Lab 2 — Expenses REST API (Flask)
 
